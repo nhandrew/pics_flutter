@@ -20,14 +20,14 @@ class AppState extends State<App> {
           title: Text('Lets see some images!'),
         ),
         floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                counter +=1;
-                print(counter);
-              });
-            },
+            onPressed: fetchImage,
             child: Icon(Icons.add)),
       ),
     );
   }
+
+  void fetchImage(){
+    
+  }
+
 }
