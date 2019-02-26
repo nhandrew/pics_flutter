@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/image_model.dart';
 
-class ImageList extends StatelessWidget{
+class ImageList extends StatelessWidget {
   final List<ImageModel> images;
 
   ImageList(this.images);
@@ -10,10 +10,22 @@ class ImageList extends StatelessWidget{
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: images.length,
-      itemBuilder: (context,int index){
-        return Image.network(images[index].url);
+      itemBuilder: (context, int index) {
+        return _buildImage(images[index]);
       },
     );
   }
 
+  Widget _buildImage(ImageModel image) {
+    return Container(
+        decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+        padding: EdgeInsets.all(20.0),
+        margin: EdgeInsets.all(20.0),
+        child: Column(
+          children: <Widget>[
+            Padding(child:Image.network(image.url),padding:EdgeInsets.only(bottom:8.0)) ,
+            Text(image.title),
+          ],
+        ));
+  }
 }
